@@ -35,11 +35,16 @@ class _QuizPageState extends State<QuizPage> {
     bool correctAnswer = quizBrain.getCorrectAnswer(null);
 
     if (userPickedAnswer == correctAnswer) {
-      print('user got it right!');
+      scoreKeeper.add(Icon(
+        Icons.check,
+        color: Colors.green,
+      ));
     } else {
-      print('user got it wrong');
+      scoreKeeper.add(Icon(
+        Icons.close,
+        color: Colors.red,
+      ));
     }
-
     setState(() {
       quizBrain.nextQuestion();
     });
